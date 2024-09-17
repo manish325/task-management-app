@@ -1,0 +1,34 @@
+.header {
+    background: linear-gradient(to bottom, #00b4db, #0083b0);
+    padding: 2rem;
+
+    .header__logo {
+        transform: scale(2);
+        margin-bottom: 1rem;
+    }
+
+    .header__title {
+        font-size: 2rem;
+        font-weight: 600;
+        color: #fff;
+        margin-bottom: 1rem;
+    }
+
+    .header__subtitle {
+        font-size: 1.5rem;
+        font-weight: 400;
+        color: #fff;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        .header__logo {
+            transform: scale(1.5);
+        }
+
+        .header__title {
+            
+        }
+    }
+}

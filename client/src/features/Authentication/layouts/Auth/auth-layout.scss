@@ -1,0 +1,17 @@
+.auth-layout {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    background: linear-gradient(to bottom, #00b4db, #0083b0);
+    height: 100%;
+
+    .login-form-wrapper {
+        margin: 5% 0;
+        flex: 0.5;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        background: #f7f7f7;
+        border-radius: 20px;
+        padding: 2rem;
+    }
+}

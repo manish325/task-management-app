@@ -1,0 +1,24 @@
+@import "./../../../../style/mixins.scss";
+
+.register {
+    h1 {
+        text-align: center;
+    }
+
+    .register-form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: .5rem;
+
+        .form-field {
+            display: flex;
+            flex-direction: column;
+            gap: .5rem;
+        }
+
+        @include mobile() {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}

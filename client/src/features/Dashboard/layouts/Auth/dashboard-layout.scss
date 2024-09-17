@@ -1,0 +1,17 @@
+.dashboard-layout {
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    align-items: stretch;
+    background: linear-gradient(to bottom, #00b4db, #0083b0);
+    height: 100%;
+    overflow: hidden;
+
+    .login-form {
+        flex: 1;
+        background: #f7f7f7;
+        height: 100%;
+        overflow: scroll;
+        display: flex;
+    }
+}

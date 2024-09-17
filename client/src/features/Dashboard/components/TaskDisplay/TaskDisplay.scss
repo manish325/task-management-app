@@ -1,0 +1,14 @@
+@import "../../../../style/mixins.scss";
+
+.task-display {
+    padding: 0 1rem;
+    background: rgb(254, 246, 246);
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    flex: 1;
+    
+    @include mobile () {
+        overflow-y: scroll;
+        grid-template-columns: repeat(1, 1fr) !important;
+    }
+}

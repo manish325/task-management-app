@@ -1,0 +1,22 @@
+/* For Google Chrome, Edge, and Safari */
+::-webkit-scrollbar {
+    width: 12px;               /* Width of the entire scrollbar */
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #f0f0f0;       /* Background of the scrollbar track */
+    border-radius: 10px !important;       /* Rounded corners on track */
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: #bb1010; /* Gray color for the scrollbar thumb */
+    border-radius: 10px !important;       /* Rounded corners for the thumb */
+    border: 2px solid #f0f0f0; /* Space between the thumb and track */
+  }
+  
+  /* For Firefox */
+  * {
+    scrollbar-width: thin;              /* Width of the scrollbar */
+    scrollbar-color: #dfd8d8 #f0f0f0;   /* Thumb color and track color */
+  }
+  

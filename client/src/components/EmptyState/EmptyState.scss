@@ -1,0 +1,23 @@
+.empty-state {
+    text-align: center;
+    padding: 2rem;
+    color: #6b7280;
+    
+    &-icon {
+      font-size: 4rem;  // Adjust size as needed
+      color: #d1d5db;  // Gray color, adjust as needed
+      margin-bottom: 1rem;
+    }
+    
+    &-title {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      font-weight: bold;
+    }
+    
+    &-message {
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+    }
+  }
+  

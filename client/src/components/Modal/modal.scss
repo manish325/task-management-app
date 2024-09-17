@@ -1,0 +1,38 @@
+/* modal.scss */
+.dialog-container {
+    .custom-dialog {
+      /* Target the root Paper component of the Dialog */
+      .MuiPaper-root {
+        border-radius: 8px !important; /* Rounded corners */
+        padding: 32px 16px 16px 16px !important;/* Padding inside the dialog */
+        max-width: 600px !important; /* Maximum width of the dialog */
+        width: 100% !important; /* Full width up to max-width */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important; /* Shadow effect */
+        background-color: #fff !important; /* White background */
+      }
+      
+      /* Optional: Styling for the dialog title */
+      .MuiDialogTitle-root {
+        font-size: 1.5rem !important; /* Title font size */
+        font-weight: 600 !important; /* Bold title */
+        margin-bottom: 16px !important; /* Space below the title */
+      }
+      
+      /* Optional: Styling for the dialog content */
+      .MuiDialogContent-root {
+        font-size: 1rem !important; /* Font size for content */
+        color: #333 !important; /* Dark grey text color */
+      }
+      
+      /* Optional: Styling for close button (if present) */
+      .MuiIconButton-root {
+        color: #333 !important; /* Color of the close button */
+      }
+    }
+    
+    /* Optional: Overlay styling (background behind the modal) */
+    .MuiBackdrop-root {
+      background-color: rgba(0, 0, 0, 0.3) !important; /* Slightly darkened overlay */
+    }
+  }
+  

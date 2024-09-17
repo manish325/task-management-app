@@ -1,0 +1,31 @@
+.stage-container {
+    max-height: 50vh;
+    overflow-y: scroll !important;
+    position: relative;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .stage-title {
+        background: linear-gradient(to bottom, #00b4db, #0083b0);
+        color: white;
+        padding: 1rem;
+        position: sticky;
+        top: 0;
+    }
+    .tasks-list-container {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .placeholder {
+        flex: 1;
+    }
+    
+    .empty-task-card {
+        flex: 1;
+        visibility: hidden;
+    }
+
+}

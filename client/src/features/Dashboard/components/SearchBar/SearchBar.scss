@@ -1,0 +1,13 @@
+@import "./../../../../style/mixins.scss";
+
+.search-bar {
+    padding: 1rem;
+
+    @include desktop() {
+        padding: 1rem;
+    }
+
+    .add-task {
+        padding-top: 0 !important;
+    }
+}

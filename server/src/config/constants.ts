@@ -22,4 +22,5 @@ export const RESPONSE_PHRASES = {
     TASKS_FETCHED : 'Tasks Fetched Successfully!',
     STAGES_FETCHED : 'Stages Fetched Successfully!',
     TASK_STAGE_UPDATED : 'Task Stage Updated Successfully!',
+    TASK_DELETED : 'Task Deleted Successfully!'
 }

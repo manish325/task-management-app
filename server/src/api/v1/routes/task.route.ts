@@ -55,5 +55,16 @@ taskRouter.patch('/updateTaskStage', validateUpdateTaskStageRequest(), async (re
         authService
     );
     return taskController.updateTaskStage(req, res, next)
-})
+});
+
+taskRouter.delete('/deleteTask', async (req, res, next) => {
+    console.log("Request recieved")
+    const taskService = new TaskService();
+    const authService = new AuthService();
+    const taskController = new TaskController(
+        taskService,
+        authService
+    );
+    return taskController.deleteTask(req, res, next);
+});
 

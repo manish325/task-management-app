@@ -121,4 +121,31 @@ export class TaskController {
             next(e);
         }
     }
+
+    async deleteTask (req : Request, res: Response, next: NextFunction) {
+        // TODO: Implement this
+        const {id} = req.query as {id: string};
+        if(!id) {
+            return res.status(StatusCodes.BAD_REQUEST).send(
+                new ResponseFailure(
+                    Errors.TASK_ID_REQUIRED,
+                    StatusCodes.BAD_REQUEST,
+                    [Errors.TASK_ID_REQUIRED]
+                )
+            )
+        }
+        try {
+            await this.taskService.deleteTask(parseInt(id));
+            return res.status(StatusCodes.OK).send(
+                new ResponseSuccess(
+                    RESPONSE_PHRASES.TASK_DELETED,
+                    StatusCodes.OK,
+                    {}  
+                )
+            )
+        } catch(e) {
+            next(e);
+        }
+
+    }
 }

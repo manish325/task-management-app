@@ -42,18 +42,15 @@ export class TaskService {
         }
     
         const userWithTasksAndStages = await queryBuilder.getMany();
-        console.log("Logging the taskstages")
-        console.log(userWithTasksAndStages[0].tasks);
-    
-        // Construct response
         const response = userWithTasksAndStages.map(user => ({
             userId: user.id,
             firstName: user.firstName,
             lastName: user.lastName,
             stages: user.tasks.reduce((acc, task) => {
-                let stage = acc.find(s => s.stageId === task.stage.id);
-                if (!stage) {
-                    stage = {
+                if(task.isActive) {
+                    let stage = acc.find(s => s.stageId === task.stage.id);
+                    if (!stage) {
+                        stage = {
                         stageId: task.stage.id,
                         stageName: task.stage.stage,
                         isDefault: !!task.stage.isDefault,
@@ -69,11 +66,11 @@ export class TaskService {
                     createdAt: task.createdAt,
                     updatedAt: task.updatedAt,
                 });
+            }
                 return acc;
             }, [] as any[]),
         }))[0];
 
-        console.log("Logging the user stages response as ", response.stages);
         const stages = await this.stageService.getAllStages();
         stages.map(stage => {
             const responseStage = response.stages.find(s => s.stageId === stage.id);
@@ -133,5 +130,9 @@ export class TaskService {
         } else {
             throw new Error('Task or Stage not found');
         }
+    }
+
+    async deleteTask(taskId : number) {
+        await this.taskRepo.update(taskId, { isActive: false });
     }
 }

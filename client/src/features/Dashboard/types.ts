@@ -38,10 +38,11 @@ export interface IDashboardContext {
     getTaskList : (searchText?: string) => void,
     getAllStages : () => void,
     onEditTask : (task : ITask) => void,
-    onDeleteTask : (task : ITask) => void,
+    onDeleteTask : (task? : ITask) => void,
     updateTaskStage : (data : IUpdateTaskStage) => Promise<boolean>,
     taskToEdit : ITask | undefined,
-    taskToDelete : ITask | undefined
+    taskToDelete : ITask | undefined,
+    setPinnedTaskNull : () => void
 
 }
 

@@ -43,12 +43,11 @@ const Login: FC = () => {
                     <span className="error">{errors.password?.message}</span>
                 </div>
 
-                <Button type="submit">
+                <Button type="submit" color="primary" variant="contained">
                     {
                         loading && isSubmitting ? <CircularProgress/> : 'Submit'
                     }
                 </Button>
-
             </form>
             <Button className="sign-in-with-google" onClick={googleLogin as any}>
                 <FcGoogle/> <span>Sign in with Google</span>

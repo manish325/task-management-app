@@ -6,6 +6,12 @@
     @include desktop() {
         padding: 1rem;
     }
+    .MuiGrid-root {
+
+        @include mobile () {
+            gap: 1rem;
+        }
+    }
 
     .add-task {
         padding-top: 0 !important;

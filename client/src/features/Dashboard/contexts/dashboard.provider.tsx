@@ -218,21 +218,41 @@ export const DashboardContextProvider: FC<PropsWithChildren> = ({ children }) =>
             setTaskToEdit(task);
         } else {
             await updateTask(taskToEdit as unknown as ITask);
+            await getTaskList();
             setTaskToEdit(undefined);
         }
     }, [
         setTaskToEdit,
-        updateTask
+        updateTask,
+        getTaskList
     ]);
 
     const onDeleteTask = useCallback(async (task?: ITask) => {
-        if(task) {
+        console.log(task);
+        if(task?.title)  {
             setTaskToDelete(task);
         } else {
             await deleteTask(taskToDelete?.id as number);
+            await getTaskList();
             setTaskToDelete(undefined);
         }
-    }, []);
+    }, [
+        setTaskToDelete,
+        deleteTask,
+        taskToDelete,
+        getTaskList
+    ]);
+
+    const setPinnedTaskNull = useCallback(() => {
+        if(taskToDelete) {
+            return setTaskToDelete(undefined);
+        } 
+        return setTaskToEdit(undefined);
+    }, [
+        taskToDelete,
+        setTaskToDelete,
+        setTaskToEdit
+    ])
 
     const contextValue: IDashboardContext = useMemo(() => {
         return {
@@ -247,7 +267,8 @@ export const DashboardContextProvider: FC<PropsWithChildren> = ({ children }) =>
             onEditTask,
             onDeleteTask,
             taskToDelete,
-            taskToEdit
+            taskToEdit,
+            setPinnedTaskNull
         }
     },
         [
@@ -262,7 +283,8 @@ export const DashboardContextProvider: FC<PropsWithChildren> = ({ children }) =>
             onEditTask,
             onDeleteTask,
             taskToDelete,
-            taskToEdit
+            taskToEdit,
+            setPinnedTaskNull
         ]
     );
 

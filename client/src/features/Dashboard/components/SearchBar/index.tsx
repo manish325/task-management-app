@@ -17,7 +17,7 @@ export const SearchBar: FC<ISearchBarProps> = ({ onAddTask }) => {
     getTaskList
   } = useContext(DashboardContext) as IDashboardContext;
 
-  const onSearchChange = (searchText : string) => {
+  const onSearchChange = (searchText: string) => {
     console.log("Searched text appeared to be", searchText);
     getTaskList(searchText);
   }
@@ -26,20 +26,20 @@ export const SearchBar: FC<ISearchBarProps> = ({ onAddTask }) => {
     <Grid container spacing={2} className="search-bar">
       {/* First Row: Add Task Button */}
       <Grid item xs={12} container justifyContent="flex-end" flexDirection={'row-reverse'} className="add-task">
-       
+
       </Grid>
 
       {/* Second Row: Search Task and Sort By */}
       <Grid item xs={12} container justifyContent="space-between" alignItems="center">
         {/* Search Task */}
         <Grid item xs={12} md={6}>
-            <TextField
-              fullWidth
-              label="Search Task"
-              variant="outlined"
-              placeholder="Search By Task Id, Task Name, or Description, Stage Name"
-              onChange={(e) => onSearchChange(e.target.value)}
-            />
+          <TextField
+            fullWidth
+            label="Search Task"
+            variant="outlined"
+            placeholder="Search By Task Id, Task Name, or Description, Stage Name"
+            onChange={(e) => onSearchChange(e.target.value)}
+          />
         </Grid>
 
         {/* Sort By */}
@@ -55,11 +55,11 @@ export const SearchBar: FC<ISearchBarProps> = ({ onAddTask }) => {
               <MenuItem value="priority">Priority</MenuItem>
               <MenuItem value="status">Status</MenuItem>
             </Select> */}
-             <Button variant="contained" color="primary"
-          onClick={onAddTask}
-        >
-          Add Task
-        </Button>
+            <Button variant="contained" color="primary"
+              onClick={onAddTask}
+            >
+              Add Task
+            </Button>
           </FormControl>
         </Grid>
       </Grid>

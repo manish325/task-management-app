@@ -7,6 +7,7 @@ import { TaskDisplay } from "../../components/TaskDisplay";
 import { Modal } from "../../../../components/Modal/modal";
 import { TaskForm } from "../../components/TaskForm";
 import "./UserHome.scss";
+import { DeleteTaskModal } from "../../components/DeleteTaskModal";
 
 const UserHome: FC = () => {
     const {
@@ -16,7 +17,8 @@ const UserHome: FC = () => {
         onEditTask,
         onDeleteTask,
         taskToDelete,
-        taskToEdit
+        taskToEdit,
+        setPinnedTaskNull
     } = useContext(DashboardContext) as IDashboardContext;
     const {
         taskList
@@ -37,6 +39,7 @@ const UserHome: FC = () => {
 
     const onModalClose = () => {
         setToAddTask(false);
+        return setPinnedTaskNull();
     }
 
     const refresh = useCallback(async () => {
@@ -50,7 +53,12 @@ const UserHome: FC = () => {
                 isModalOpen={toAddTask || (taskToEdit ? true : false) || (taskToDelete ? true : false)}
                 onModalClose={onModalClose}
             >
-                <TaskForm needRefresh={refresh} task={taskToEdit} />
+                {
+                    toAddTask || taskToEdit ?
+                    <TaskForm needRefresh={refresh} task={taskToEdit} /> : taskToDelete ? 
+                    <DeleteTaskModal onDelete={onDeleteTask} onCancel={setPinnedTaskNull}/> : null
+                }
+                
             </Modal>
             <Header />
             <SearchBar

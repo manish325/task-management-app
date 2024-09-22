@@ -52,14 +52,12 @@ const Register: FC = () => {
                     <TextField {...register("confirmPassword")} error={errors.confirmPassword?.message ? true : false} type="password" placeholder="Confirm Password"></TextField>
                     <span className="error">{errors.confirmPassword?.message}</span>
                 </div>
-
-                <Button type="submit">
+            </form>
+                <Button type="submit" variant="contained">
                     {
                         isSubmitting && loading ? <CircularProgress/> : 'Sign up'
                     }
                 </Button>
-
-            </form>
             <Link to={'/auth/login'}>
                 Click here to go to login
             </Link>

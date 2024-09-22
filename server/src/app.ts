@@ -14,6 +14,9 @@ const startServer = async () => {
         await connectDatabase();
         applyGlobalMiddlewares(app);
         registerRoutes(app);
+        app.get('/', (req, res) => {
+            res.send('Application running successfully!')
+        })
         app.use((err: any, req: any, res: any, next: any) => {
             return res.send(
                 new ResponseFailure(
